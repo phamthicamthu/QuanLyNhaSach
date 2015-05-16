@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5127013c3a61434194f092ea4d33a36a" Name="Diagram1" ZoomLevel="111">
+        <EntityTypeShape EntityType="QuanLySachModel.CHITIETHOADON" Width="1.625" PointX="0.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySachModel.CHITIETPHIEUNHAP" Width="1.75" PointX="2.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySachModel.HOADON" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySachModel.KHACHHANG" Width="1.5" PointX="2.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySachModel.NHANVIEN" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySachModel.PHIEUNHAP" Width="1.625" PointX="4.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySachModel.PHIEUTHUTIEN" Width="1.5" PointX="7" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySachModel.QUYDINH" Width="1.5" PointX="2.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySachModel.SACH" Width="2.125" PointX="8" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySachModel.TACGIA" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySachModel.TAIKHOAN" Width="1.5" PointX="4.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySachModel.THELOAI" Width="1.5" PointX="8.875" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLySachModel.VAITRO" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="QuanLySachModel.NHANVIENTAIKHOAN" />
+        <AssociationConnector Association="QuanLySachModel.THELOAISACH" />
+        <AssociationConnector Association="QuanLySachModel.TACGIASACH" />
+        <AssociationConnector Association="QuanLySachModel.VAITRONHANVIEN" />
+        <AssociationConnector Association="QuanLySachModel.NHANVIENPHIEUNHAP" />
+        <AssociationConnector Association="QuanLySachModel.KHACHHANGPHIEUTHUTIEN" />
+        <AssociationConnector Association="QuanLySachModel.PHIEUNHAPCHITIETPHIEUNHAP" />
+        <AssociationConnector Association="QuanLySachModel.HOADONPHIEUTHUTIEN" />
+        <AssociationConnector Association="QuanLySachModel.HOADONCHITIETHOADON" />
+        <AssociationConnector Association="QuanLySachModel.SACHCHITIETPHIEUNHAP" />
+        <AssociationConnector Association="QuanLySachModel.FK__HOADON__MAKHACHH__398D8EEE" />
+        <AssociationConnector Association="QuanLySachModel.FK__CHITIETHO__MASAC__38996AB5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

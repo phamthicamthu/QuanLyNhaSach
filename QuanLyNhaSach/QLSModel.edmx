@@ -1,0 +1,688 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QuanLySachModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="QuanLySachModelStoreContainer">
+          <EntitySet Name="CHITIETHOADON" EntityType="QuanLySachModel.Store.CHITIETHOADON" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CHITIETPHIEUNHAP" EntityType="QuanLySachModel.Store.CHITIETPHIEUNHAP" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HOADON" EntityType="QuanLySachModel.Store.HOADON" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="KHACHHANG" EntityType="QuanLySachModel.Store.KHACHHANG" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NHANVIEN" EntityType="QuanLySachModel.Store.NHANVIEN" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PHIEUNHAP" EntityType="QuanLySachModel.Store.PHIEUNHAP" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PHIEUTHUTIEN" EntityType="QuanLySachModel.Store.PHIEUTHUTIEN" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="QUYDINH" EntityType="QuanLySachModel.Store.QUYDINH" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SACH" EntityType="QuanLySachModel.Store.SACH" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TACGIA" EntityType="QuanLySachModel.Store.TACGIA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TAIKHOAN" EntityType="QuanLySachModel.Store.TAIKHOAN" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="THELOAI" EntityType="QuanLySachModel.Store.THELOAI" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VAITRO" EntityType="QuanLySachModel.Store.VAITRO" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__CHITIETHO__MASAC__38996AB5" Association="QuanLySachModel.Store.FK__CHITIETHO__MASAC__38996AB5">
+            <End Role="SACH" EntitySet="SACH" />
+            <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON__MAKHACHH__398D8EEE" Association="QuanLySachModel.Store.FK__HOADON__MAKHACHH__398D8EEE">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="HOADON" EntitySet="HOADON" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CHITIETHOADON">
+          <Key>
+            <PropertyRef Name="MACHITIET" />
+          </Key>
+          <Property Name="MACHITIET" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MAHOADON" Type="int" Nullable="false" />
+          <Property Name="MASACH" Type="varchar" MaxLength="50" />
+          <Property Name="SOLUONG" Type="int" Nullable="false" />
+          <Property Name="DONGIA" Type="decimal" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CHITIETPHIEUNHAP">
+          <Key>
+            <PropertyRef Name="MACHITIET" />
+          </Key>
+          <Property Name="MACHITIET" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MAPHIEUNHAP" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="MASACH" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="SOLUONG" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HOADON">
+          <Key>
+            <PropertyRef Name="MAHOADON" />
+          </Key>
+          <Property Name="MAHOADON" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NGAYLAP" Type="date" Nullable="false" />
+          <Property Name="MAKHACHHANG" Type="varchar" MaxLength="50" />
+          <Property Name="TONGTIEN" Type="decimal" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="MAKHACHHANG" />
+          </Key>
+          <Property Name="MAKHACHHANG" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="TENKHACHHANG" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="DIACHI" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="EMAIL" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="DIENTHOAI" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="MANV" />
+          </Key>
+          <Property Name="MANV" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="TENNV" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="MAVT" Type="int" Nullable="false" />
+          <Property Name="LUONG" Type="decimal" Nullable="false" />
+          <Property Name="HESO" Type="float" Nullable="false" />
+          <Property Name="SODT" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="EMAIL" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="DIACHI" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PHIEUNHAP">
+          <Key>
+            <PropertyRef Name="MAPHIEUNHAP" />
+          </Key>
+          <Property Name="MAPHIEUNHAP" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="NGAYNHAP" Type="date" Nullable="false" />
+          <Property Name="MANV" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PHIEUTHUTIEN">
+          <Key>
+            <PropertyRef Name="MAPHIEUTHU" />
+          </Key>
+          <Property Name="MAPHIEUTHU" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MAHOADON" Type="int" Nullable="false" />
+          <Property Name="MAKHACHHANG" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="NGAYTHU" Type="date" Nullable="false" />
+          <Property Name="SOTIENTHU" Type="decimal" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QUYDINH">
+          <Key>
+            <PropertyRef Name="MAQUYDINH" />
+          </Key>
+          <Property Name="MAQUYDINH" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="TENQUYDINH" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="GIATRI" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SACH">
+          <Key>
+            <PropertyRef Name="MASACH" />
+          </Key>
+          <Property Name="MASACH" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="TENSACH" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="MATHELOAI" Type="int" Nullable="false" />
+          <Property Name="MATACGIA" Type="int" Nullable="false" />
+          <Property Name="SOLUONG" Type="int" Nullable="false" />
+          <Property Name="DONGIA" Type="decimal" Nullable="false" />
+          <Property Name="HINHANH" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TACGIA">
+          <Key>
+            <PropertyRef Name="MATACGIA" />
+          </Key>
+          <Property Name="MATACGIA" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TENTACGIA" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TAIKHOAN">
+          <Key>
+            <PropertyRef Name="MATK" />
+          </Key>
+          <Property Name="MATK" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MANV" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="TENDANGNHAP" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="MATKHAU" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="THELOAI">
+          <Key>
+            <PropertyRef Name="MATHELOAI" />
+          </Key>
+          <Property Name="MATHELOAI" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TENTHELOAI" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="VAITRO">
+          <Key>
+            <PropertyRef Name="MAVT" />
+          </Key>
+          <Property Name="MAVT" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TENVT" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__CHITIETHO__MASAC__38996AB5">
+          <End Role="SACH" Type="QuanLySachModel.Store.SACH" Multiplicity="0..1" />
+          <End Role="CHITIETHOADON" Type="QuanLySachModel.Store.CHITIETHOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SACH">
+              <PropertyRef Name="MASACH" />
+            </Principal>
+            <Dependent Role="CHITIETHOADON">
+              <PropertyRef Name="MASACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON__MAKHACHH__398D8EEE">
+          <End Role="KHACHHANG" Type="QuanLySachModel.Store.KHACHHANG" Multiplicity="0..1" />
+          <End Role="HOADON" Type="QuanLySachModel.Store.HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="MAKHACHHANG" />
+            </Principal>
+            <Dependent Role="HOADON">
+              <PropertyRef Name="MAKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuanLySachModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QuanLySachEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="CHITIETHOADONs" EntityType="QuanLySachModel.CHITIETHOADON" />
+          <EntitySet Name="CHITIETPHIEUNHAPs" EntityType="QuanLySachModel.CHITIETPHIEUNHAP" />
+          <EntitySet Name="HOADONs" EntityType="QuanLySachModel.HOADON" />
+          <EntitySet Name="KHACHHANGs" EntityType="QuanLySachModel.KHACHHANG" />
+          <EntitySet Name="NHANVIENs" EntityType="QuanLySachModel.NHANVIEN" />
+          <EntitySet Name="PHIEUNHAPs" EntityType="QuanLySachModel.PHIEUNHAP" />
+          <EntitySet Name="PHIEUTHUTIENs" EntityType="QuanLySachModel.PHIEUTHUTIEN" />
+          <EntitySet Name="QUYDINHs" EntityType="QuanLySachModel.QUYDINH" />
+          <EntitySet Name="SACHes" EntityType="QuanLySachModel.SACH" />
+          <EntitySet Name="TACGIAs" EntityType="QuanLySachModel.TACGIA" />
+          <EntitySet Name="TAIKHOANs" EntityType="QuanLySachModel.TAIKHOAN" />
+          <EntitySet Name="THELOAIs" EntityType="QuanLySachModel.THELOAI" />
+          <EntitySet Name="VAITROes" EntityType="QuanLySachModel.VAITRO" />
+          <AssociationSet Name="NHANVIENTAIKHOAN" Association="QuanLySachModel.NHANVIENTAIKHOAN">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+          </AssociationSet>
+          <AssociationSet Name="THELOAISACH" Association="QuanLySachModel.THELOAISACH">
+            <End Role="THELOAI" EntitySet="THELOAIs" />
+            <End Role="SACH" EntitySet="SACHes" />
+          </AssociationSet>
+          <AssociationSet Name="TACGIASACH" Association="QuanLySachModel.TACGIASACH">
+            <End Role="TACGIA" EntitySet="TACGIAs" />
+            <End Role="SACH" EntitySet="SACHes" />
+          </AssociationSet>
+          <AssociationSet Name="VAITRONHANVIEN" Association="QuanLySachModel.VAITRONHANVIEN">
+            <End Role="VAITRO" EntitySet="VAITROes" />
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+          </AssociationSet>
+          <AssociationSet Name="NHANVIENPHIEUNHAP" Association="QuanLySachModel.NHANVIENPHIEUNHAP">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
+          </AssociationSet>
+          <AssociationSet Name="KHACHHANGPHIEUTHUTIEN" Association="QuanLySachModel.KHACHHANGPHIEUTHUTIEN">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="PHIEUTHUTIEN" EntitySet="PHIEUTHUTIENs" />
+          </AssociationSet>
+          <AssociationSet Name="PHIEUNHAPCHITIETPHIEUNHAP" Association="QuanLySachModel.PHIEUNHAPCHITIETPHIEUNHAP">
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
+            <End Role="CHITIETPHIEUNHAP" EntitySet="CHITIETPHIEUNHAPs" />
+          </AssociationSet>
+          <AssociationSet Name="HOADONPHIEUTHUTIEN" Association="QuanLySachModel.HOADONPHIEUTHUTIEN">
+            <End Role="HOADON" EntitySet="HOADONs" />
+            <End Role="PHIEUTHUTIEN" EntitySet="PHIEUTHUTIENs" />
+          </AssociationSet>
+          <AssociationSet Name="HOADONCHITIETHOADON" Association="QuanLySachModel.HOADONCHITIETHOADON">
+            <End Role="HOADON" EntitySet="HOADONs" />
+            <End Role="CHITIETHOADON" EntitySet="CHITIETHOADONs" />
+          </AssociationSet>
+          <AssociationSet Name="SACHCHITIETPHIEUNHAP" Association="QuanLySachModel.SACHCHITIETPHIEUNHAP">
+            <End Role="SACH" EntitySet="SACHes" />
+            <End Role="CHITIETPHIEUNHAP" EntitySet="CHITIETPHIEUNHAPs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON__MAKHACHH__398D8EEE" Association="QuanLySachModel.FK__HOADON__MAKHACHH__398D8EEE">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="HOADON" EntitySet="HOADONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHITIETHO__MASAC__38996AB5" Association="QuanLySachModel.FK__CHITIETHO__MASAC__38996AB5">
+            <End Role="SACH" EntitySet="SACHes" />
+            <End Role="CHITIETHOADON" EntitySet="CHITIETHOADONs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CHITIETHOADON">
+          <Key>
+            <PropertyRef Name="MACHITIET" />
+          </Key>
+          <Property Name="MACHITIET" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MAHOADON" Type="Int32" Nullable="false" />
+          <Property Name="MASACH" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SOLUONG" Type="Int32" Nullable="false" />
+          <Property Name="DONGIA" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="HOADON" Relationship="QuanLySachModel.HOADONCHITIETHOADON" FromRole="CHITIETHOADON" ToRole="HOADON" />
+          <NavigationProperty Name="SACH" Relationship="QuanLySachModel.FK__CHITIETHO__MASAC__38996AB5" FromRole="CHITIETHOADON" ToRole="SACH" />
+        </EntityType>
+        <EntityType Name="CHITIETPHIEUNHAP">
+          <Key>
+            <PropertyRef Name="MACHITIET" />
+          </Key>
+          <Property Name="MACHITIET" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MAPHIEUNHAP" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MASACH" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SOLUONG" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PHIEUNHAP" Relationship="QuanLySachModel.PHIEUNHAPCHITIETPHIEUNHAP" FromRole="CHITIETPHIEUNHAP" ToRole="PHIEUNHAP" />
+          <NavigationProperty Name="SACH" Relationship="QuanLySachModel.SACHCHITIETPHIEUNHAP" FromRole="CHITIETPHIEUNHAP" ToRole="SACH" />
+        </EntityType>
+        <EntityType Name="HOADON">
+          <Key>
+            <PropertyRef Name="MAHOADON" />
+          </Key>
+          <Property Name="MAHOADON" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="NGAYLAP" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MAKHACHHANG" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TONGTIEN" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="PHIEUTHUTIENs" Relationship="QuanLySachModel.HOADONPHIEUTHUTIEN" FromRole="HOADON" ToRole="PHIEUTHUTIEN" />
+          <NavigationProperty Name="CHITIETHOADONs" Relationship="QuanLySachModel.HOADONCHITIETHOADON" FromRole="HOADON" ToRole="CHITIETHOADON" />
+          <NavigationProperty Name="KHACHHANG" Relationship="QuanLySachModel.FK__HOADON__MAKHACHH__398D8EEE" FromRole="HOADON" ToRole="KHACHHANG" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="MAKHACHHANG" />
+          </Key>
+          <Property Name="MAKHACHHANG" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TENKHACHHANG" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="DIACHI" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="DIENTHOAI" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PHIEUTHUTIENs" Relationship="QuanLySachModel.KHACHHANGPHIEUTHUTIEN" FromRole="KHACHHANG" ToRole="PHIEUTHUTIEN" />
+          <NavigationProperty Name="HOADONs" Relationship="QuanLySachModel.FK__HOADON__MAKHACHH__398D8EEE" FromRole="KHACHHANG" ToRole="HOADON" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="MANV" />
+          </Key>
+          <Property Name="MANV" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TENNV" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="MAVT" Type="Int32" Nullable="false" />
+          <Property Name="LUONG" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="HESO" Type="Double" Nullable="false" />
+          <Property Name="SODT" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DIACHI" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="TAIKHOANs" Relationship="QuanLySachModel.NHANVIENTAIKHOAN" FromRole="NHANVIEN" ToRole="TAIKHOAN" />
+          <NavigationProperty Name="VAITRO" Relationship="QuanLySachModel.VAITRONHANVIEN" FromRole="NHANVIEN" ToRole="VAITRO" />
+          <NavigationProperty Name="PHIEUNHAPs" Relationship="QuanLySachModel.NHANVIENPHIEUNHAP" FromRole="NHANVIEN" ToRole="PHIEUNHAP" />
+        </EntityType>
+        <EntityType Name="PHIEUNHAP">
+          <Key>
+            <PropertyRef Name="MAPHIEUNHAP" />
+          </Key>
+          <Property Name="MAPHIEUNHAP" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NGAYNHAP" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MANV" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="NHANVIEN" Relationship="QuanLySachModel.NHANVIENPHIEUNHAP" FromRole="PHIEUNHAP" ToRole="NHANVIEN" />
+          <NavigationProperty Name="CHITIETPHIEUNHAPs" Relationship="QuanLySachModel.PHIEUNHAPCHITIETPHIEUNHAP" FromRole="PHIEUNHAP" ToRole="CHITIETPHIEUNHAP" />
+        </EntityType>
+        <EntityType Name="PHIEUTHUTIEN">
+          <Key>
+            <PropertyRef Name="MAPHIEUTHU" />
+          </Key>
+          <Property Name="MAPHIEUTHU" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MAHOADON" Type="Int32" Nullable="false" />
+          <Property Name="MAKHACHHANG" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NGAYTHU" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SOTIENTHU" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="KHACHHANG" Relationship="QuanLySachModel.KHACHHANGPHIEUTHUTIEN" FromRole="PHIEUTHUTIEN" ToRole="KHACHHANG" />
+          <NavigationProperty Name="HOADON" Relationship="QuanLySachModel.HOADONPHIEUTHUTIEN" FromRole="PHIEUTHUTIEN" ToRole="HOADON" />
+        </EntityType>
+        <EntityType Name="QUYDINH">
+          <Key>
+            <PropertyRef Name="MAQUYDINH" />
+          </Key>
+          <Property Name="MAQUYDINH" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="TENQUYDINH" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="GIATRI" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SACH">
+          <Key>
+            <PropertyRef Name="MASACH" />
+          </Key>
+          <Property Name="MASACH" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TENSACH" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="MATHELOAI" Type="Int32" Nullable="false" />
+          <Property Name="MATACGIA" Type="Int32" Nullable="false" />
+          <Property Name="SOLUONG" Type="Int32" Nullable="false" />
+          <Property Name="DONGIA" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="HINHANH" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="THELOAI" Relationship="QuanLySachModel.THELOAISACH" FromRole="SACH" ToRole="THELOAI" />
+          <NavigationProperty Name="TACGIA" Relationship="QuanLySachModel.TACGIASACH" FromRole="SACH" ToRole="TACGIA" />
+          <NavigationProperty Name="CHITIETPHIEUNHAPs" Relationship="QuanLySachModel.SACHCHITIETPHIEUNHAP" FromRole="SACH" ToRole="CHITIETPHIEUNHAP" />
+          <NavigationProperty Name="CHITIETHOADONs" Relationship="QuanLySachModel.FK__CHITIETHO__MASAC__38996AB5" FromRole="SACH" ToRole="CHITIETHOADON" />
+        </EntityType>
+        <EntityType Name="TACGIA">
+          <Key>
+            <PropertyRef Name="MATACGIA" />
+          </Key>
+          <Property Name="MATACGIA" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TENTACGIA" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="SACHes" Relationship="QuanLySachModel.TACGIASACH" FromRole="TACGIA" ToRole="SACH" />
+        </EntityType>
+        <EntityType Name="TAIKHOAN">
+          <Key>
+            <PropertyRef Name="MATK" />
+          </Key>
+          <Property Name="MATK" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="MANV" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TENDANGNHAP" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MATKHAU" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="NHANVIEN" Relationship="QuanLySachModel.NHANVIENTAIKHOAN" FromRole="TAIKHOAN" ToRole="NHANVIEN" />
+        </EntityType>
+        <EntityType Name="THELOAI">
+          <Key>
+            <PropertyRef Name="MATHELOAI" />
+          </Key>
+          <Property Name="MATHELOAI" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TENTHELOAI" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="SACHes" Relationship="QuanLySachModel.THELOAISACH" FromRole="THELOAI" ToRole="SACH" />
+        </EntityType>
+        <EntityType Name="VAITRO">
+          <Key>
+            <PropertyRef Name="MAVT" />
+          </Key>
+          <Property Name="MAVT" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TENVT" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="NHANVIENs" Relationship="QuanLySachModel.VAITRONHANVIEN" FromRole="VAITRO" ToRole="NHANVIEN" />
+        </EntityType>
+        <Association Name="NHANVIENTAIKHOAN">
+          <End Type="QuanLySachModel.NHANVIEN" Role="NHANVIEN" Multiplicity="1" />
+          <End Type="QuanLySachModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="MANV" />
+            </Principal>
+            <Dependent Role="TAIKHOAN">
+              <PropertyRef Name="MANV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="THELOAISACH">
+          <End Type="QuanLySachModel.THELOAI" Role="THELOAI" Multiplicity="1" />
+          <End Type="QuanLySachModel.SACH" Role="SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="THELOAI">
+              <PropertyRef Name="MATHELOAI" />
+            </Principal>
+            <Dependent Role="SACH">
+              <PropertyRef Name="MATHELOAI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TACGIASACH">
+          <End Type="QuanLySachModel.TACGIA" Role="TACGIA" Multiplicity="1" />
+          <End Type="QuanLySachModel.SACH" Role="SACH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TACGIA">
+              <PropertyRef Name="MATACGIA" />
+            </Principal>
+            <Dependent Role="SACH">
+              <PropertyRef Name="MATACGIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VAITRONHANVIEN">
+          <End Type="QuanLySachModel.VAITRO" Role="VAITRO" Multiplicity="1" />
+          <End Type="QuanLySachModel.NHANVIEN" Role="NHANVIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VAITRO">
+              <PropertyRef Name="MAVT" />
+            </Principal>
+            <Dependent Role="NHANVIEN">
+              <PropertyRef Name="MAVT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="NHANVIENPHIEUNHAP">
+          <End Type="QuanLySachModel.NHANVIEN" Role="NHANVIEN" Multiplicity="1" />
+          <End Type="QuanLySachModel.PHIEUNHAP" Role="PHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="MANV" />
+            </Principal>
+            <Dependent Role="PHIEUNHAP">
+              <PropertyRef Name="MANV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="KHACHHANGPHIEUTHUTIEN">
+          <End Type="QuanLySachModel.KHACHHANG" Role="KHACHHANG" Multiplicity="1" />
+          <End Type="QuanLySachModel.PHIEUTHUTIEN" Role="PHIEUTHUTIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="MAKHACHHANG" />
+            </Principal>
+            <Dependent Role="PHIEUTHUTIEN">
+              <PropertyRef Name="MAKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PHIEUNHAPCHITIETPHIEUNHAP">
+          <End Type="QuanLySachModel.PHIEUNHAP" Role="PHIEUNHAP" Multiplicity="1" />
+          <End Type="QuanLySachModel.CHITIETPHIEUNHAP" Role="CHITIETPHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEUNHAP">
+              <PropertyRef Name="MAPHIEUNHAP" />
+            </Principal>
+            <Dependent Role="CHITIETPHIEUNHAP">
+              <PropertyRef Name="MAPHIEUNHAP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HOADONPHIEUTHUTIEN">
+          <End Type="QuanLySachModel.HOADON" Role="HOADON" Multiplicity="1" />
+          <End Type="QuanLySachModel.PHIEUTHUTIEN" Role="PHIEUTHUTIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOADON">
+              <PropertyRef Name="MAHOADON" />
+            </Principal>
+            <Dependent Role="PHIEUTHUTIEN">
+              <PropertyRef Name="MAHOADON" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HOADONCHITIETHOADON">
+          <End Type="QuanLySachModel.HOADON" Role="HOADON" Multiplicity="1" />
+          <End Type="QuanLySachModel.CHITIETHOADON" Role="CHITIETHOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOADON">
+              <PropertyRef Name="MAHOADON" />
+            </Principal>
+            <Dependent Role="CHITIETHOADON">
+              <PropertyRef Name="MAHOADON" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SACHCHITIETPHIEUNHAP">
+          <End Type="QuanLySachModel.SACH" Role="SACH" Multiplicity="1" />
+          <End Type="QuanLySachModel.CHITIETPHIEUNHAP" Role="CHITIETPHIEUNHAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SACH">
+              <PropertyRef Name="MASACH" />
+            </Principal>
+            <Dependent Role="CHITIETPHIEUNHAP">
+              <PropertyRef Name="MASACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON__MAKHACHH__398D8EEE">
+          <End Type="QuanLySachModel.KHACHHANG" Role="KHACHHANG" Multiplicity="0..1" />
+          <End Type="QuanLySachModel.HOADON" Role="HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="MAKHACHHANG" />
+            </Principal>
+            <Dependent Role="HOADON">
+              <PropertyRef Name="MAKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHITIETHO__MASAC__38996AB5">
+          <End Type="QuanLySachModel.SACH" Role="SACH" Multiplicity="0..1" />
+          <End Type="QuanLySachModel.CHITIETHOADON" Role="CHITIETHOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SACH">
+              <PropertyRef Name="MASACH" />
+            </Principal>
+            <Dependent Role="CHITIETHOADON">
+              <PropertyRef Name="MASACH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuanLySachModelStoreContainer" CdmEntityContainer="QuanLySachEntities">
+          <EntitySetMapping Name="CHITIETHOADONs">
+            <EntityTypeMapping TypeName="QuanLySachModel.CHITIETHOADON">
+              <MappingFragment StoreEntitySet="CHITIETHOADON">
+                <ScalarProperty Name="MACHITIET" ColumnName="MACHITIET" />
+                <ScalarProperty Name="MAHOADON" ColumnName="MAHOADON" />
+                <ScalarProperty Name="MASACH" ColumnName="MASACH" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHITIETPHIEUNHAPs">
+            <EntityTypeMapping TypeName="QuanLySachModel.CHITIETPHIEUNHAP">
+              <MappingFragment StoreEntitySet="CHITIETPHIEUNHAP">
+                <ScalarProperty Name="MACHITIET" ColumnName="MACHITIET" />
+                <ScalarProperty Name="MAPHIEUNHAP" ColumnName="MAPHIEUNHAP" />
+                <ScalarProperty Name="MASACH" ColumnName="MASACH" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOADONs">
+            <EntityTypeMapping TypeName="QuanLySachModel.HOADON">
+              <MappingFragment StoreEntitySet="HOADON">
+                <ScalarProperty Name="MAHOADON" ColumnName="MAHOADON" />
+                <ScalarProperty Name="NGAYLAP" ColumnName="NGAYLAP" />
+                <ScalarProperty Name="MAKHACHHANG" ColumnName="MAKHACHHANG" />
+                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACHHANGs">
+            <EntityTypeMapping TypeName="QuanLySachModel.KHACHHANG">
+              <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="MAKHACHHANG" ColumnName="MAKHACHHANG" />
+                <ScalarProperty Name="TENKHACHHANG" ColumnName="TENKHACHHANG" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DIENTHOAI" ColumnName="DIENTHOAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHANVIENs">
+            <EntityTypeMapping TypeName="QuanLySachModel.NHANVIEN">
+              <MappingFragment StoreEntitySet="NHANVIEN">
+                <ScalarProperty Name="MANV" ColumnName="MANV" />
+                <ScalarProperty Name="TENNV" ColumnName="TENNV" />
+                <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+                <ScalarProperty Name="LUONG" ColumnName="LUONG" />
+                <ScalarProperty Name="HESO" ColumnName="HESO" />
+                <ScalarProperty Name="SODT" ColumnName="SODT" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHIEUNHAPs">
+            <EntityTypeMapping TypeName="QuanLySachModel.PHIEUNHAP">
+              <MappingFragment StoreEntitySet="PHIEUNHAP">
+                <ScalarProperty Name="MAPHIEUNHAP" ColumnName="MAPHIEUNHAP" />
+                <ScalarProperty Name="NGAYNHAP" ColumnName="NGAYNHAP" />
+                <ScalarProperty Name="MANV" ColumnName="MANV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHIEUTHUTIENs">
+            <EntityTypeMapping TypeName="QuanLySachModel.PHIEUTHUTIEN">
+              <MappingFragment StoreEntitySet="PHIEUTHUTIEN">
+                <ScalarProperty Name="MAPHIEUTHU" ColumnName="MAPHIEUTHU" />
+                <ScalarProperty Name="MAHOADON" ColumnName="MAHOADON" />
+                <ScalarProperty Name="MAKHACHHANG" ColumnName="MAKHACHHANG" />
+                <ScalarProperty Name="NGAYTHU" ColumnName="NGAYTHU" />
+                <ScalarProperty Name="SOTIENTHU" ColumnName="SOTIENTHU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUYDINHs">
+            <EntityTypeMapping TypeName="QuanLySachModel.QUYDINH">
+              <MappingFragment StoreEntitySet="QUYDINH">
+                <ScalarProperty Name="MAQUYDINH" ColumnName="MAQUYDINH" />
+                <ScalarProperty Name="TENQUYDINH" ColumnName="TENQUYDINH" />
+                <ScalarProperty Name="GIATRI" ColumnName="GIATRI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SACHes">
+            <EntityTypeMapping TypeName="QuanLySachModel.SACH">
+              <MappingFragment StoreEntitySet="SACH">
+                <ScalarProperty Name="MASACH" ColumnName="MASACH" />
+                <ScalarProperty Name="TENSACH" ColumnName="TENSACH" />
+                <ScalarProperty Name="MATHELOAI" ColumnName="MATHELOAI" />
+                <ScalarProperty Name="MATACGIA" ColumnName="MATACGIA" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="DONGIA" ColumnName="DONGIA" />
+                <ScalarProperty Name="HINHANH" ColumnName="HINHANH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TACGIAs">
+            <EntityTypeMapping TypeName="QuanLySachModel.TACGIA">
+              <MappingFragment StoreEntitySet="TACGIA">
+                <ScalarProperty Name="MATACGIA" ColumnName="MATACGIA" />
+                <ScalarProperty Name="TENTACGIA" ColumnName="TENTACGIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAIKHOANs">
+            <EntityTypeMapping TypeName="QuanLySachModel.TAIKHOAN">
+              <MappingFragment StoreEntitySet="TAIKHOAN">
+                <ScalarProperty Name="MATK" ColumnName="MATK" />
+                <ScalarProperty Name="MANV" ColumnName="MANV" />
+                <ScalarProperty Name="TENDANGNHAP" ColumnName="TENDANGNHAP" />
+                <ScalarProperty Name="MATKHAU" ColumnName="MATKHAU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="THELOAIs">
+            <EntityTypeMapping TypeName="QuanLySachModel.THELOAI">
+              <MappingFragment StoreEntitySet="THELOAI">
+                <ScalarProperty Name="MATHELOAI" ColumnName="MATHELOAI" />
+                <ScalarProperty Name="TENTHELOAI" ColumnName="TENTHELOAI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VAITROes">
+            <EntityTypeMapping TypeName="QuanLySachModel.VAITRO">
+              <MappingFragment StoreEntitySet="VAITRO">
+                <ScalarProperty Name="MAVT" ColumnName="MAVT" />
+                <ScalarProperty Name="TENVT" ColumnName="TENVT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
